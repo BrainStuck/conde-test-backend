@@ -28,6 +28,6 @@ async function bootstrap() {
     databaseURL: configService.get('FIREBASE_DATABASE_URL'),
   });
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
