@@ -27,7 +27,7 @@ export class TestsController {
   }
 
   @ApiOperation({
-    summary: '테스트 모두 조회',
+    summary: '모든 테스트 조회',
     description: 'DB에 저장된 테스트를 모두 가져옵니다.',
   })
   @Get()
