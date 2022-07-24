@@ -1,33 +1,28 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsInt, Max, Min } from 'class-validator';
+import { IsInt, IsString, Length, Max, Min } from 'class-validator';
 export class CreateTestDto {
-  @ApiProperty({ description: '첫번째 질문' })
-  @IsInt()
-  @Min(-2)
-  @Max(2)
-  one: number;
+  @ApiProperty({
+    description: '닉네임',
+  })
+  @IsString()
+  @Length(1, 20)
+  nickname: string;
 
-  @ApiProperty({ description: '두번째 질문' })
+  @ApiProperty({
+    description: '나이',
+  })
   @IsInt()
-  @Min(-2)
-  @Max(2)
-  two: number;
+  @Min(1)
+  @Max(99)
+  age: number;
 
-  @ApiProperty({ description: '세번째 질문' })
+  @ApiProperty({
+    description: '꼰대 레벨',
+    enum: [1, 2, 3, 4, 5],
+    enumName: 'CondeLevelEnum',
+  })
   @IsInt()
-  @Min(-2)
-  @Max(2)
-  three: number;
-
-  @ApiProperty({ description: '네번째 질문' })
-  @IsInt()
-  @Min(-2)
-  @Max(2)
-  four: number;
-
-  @ApiProperty({ description: '다섯번째 질문' })
-  @IsInt()
-  @Min(-2)
-  @Max(2)
-  five: number;
+  @Min(1)
+  @Max(5)
+  level: number;
 }
